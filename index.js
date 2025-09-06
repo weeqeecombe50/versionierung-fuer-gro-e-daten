@@ -8,12 +8,15 @@ function versioniereDaten(daten, callback) {
     try {
         // Logik zur Speicherung und Versionierung der Daten
         if (!daten) throw new Error('Es wurden keine Daten angegeben, die versioniert werden sollen.');
-        console.log('Daten wurden versioniert:', daten);
+        console.log('Daten wurden versioniert:', JSON.stringify(daten, null, 2));
         if (callback && typeof callback === 'function') {
             callback();
         }
     } catch (error) {
         console.error('Fehler bei der Versionierung der Daten:', error.message);
+        if (callback && typeof callback === 'function') {
+            callback(error);
+        }
     }
 }
 
@@ -21,6 +24,10 @@ function versioniereDaten(daten, callback) {
 versioniereDaten({
     id: 1,
     inhalt: 'Beispieldaten'
-}, () => {
-    console.log('Post-Versionierung abgeschlossen.');
+}, (error) => {
+    if (error) {
+        console.log('Fehler nach der Versionierung:', error.message);
+    } else {
+        console.log('Post-Versionierung abgeschlossen.');
+    }
 });
