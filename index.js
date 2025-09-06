@@ -5,10 +5,15 @@ const path = require('path');
 
 // Funktion zur Erfassung und Versionierung der Daten
 function versioniereDaten(daten, callback) {
-    // Logik zur Speicherung und Versionierung der Daten
-    console.log('Daten wurden versioniert:', daten);
-    if (callback && typeof callback === 'function') {
-        callback();
+    try {
+        // Logik zur Speicherung und Versionierung der Daten
+        if (!daten) throw new Error('Keine Daten zum Versionieren angegeben.');
+        console.log('Daten wurden versioniert:', daten);
+        if (callback && typeof callback === 'function') {
+            callback();
+        }
+    } catch (error) {
+        console.error('Fehler bei der Versionierung der Daten:', error.message);
     }
 }
 
