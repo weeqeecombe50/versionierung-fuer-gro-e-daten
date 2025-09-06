@@ -1,7 +1,7 @@
 {
   "name": "versionierung-fuer-große-daten",
   "version": "1.0.0",
-  "description": "Ein Tool zur Versionierung von großen Datenmengen.",
+  "description": "Ein Tool zur Versionierung und Verwaltung von großen Datenmengen.",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
