@@ -7,7 +7,7 @@ const path = require('path');
 function versioniereDaten(daten, callback) {
     try {
         // Logik zur Speicherung und Versionierung der Daten
-        if (!daten) throw new Error('Keine Daten zum Versionieren angegeben.');
+        if (!daten) throw new Error('Es wurden keine Daten angegeben, die versioniert werden sollen.');
         console.log('Daten wurden versioniert:', daten);
         if (callback && typeof callback === 'function') {
             callback();
